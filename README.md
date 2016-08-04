@@ -18,12 +18,16 @@
 
 这里除了文档的学习，还有三个子文件夹：
 
-[using-vue-template/](https://github.com/cody1991/learn/tree/gh-pages/vue-learn/using-vue-template/vue-tutorial) 文件夹，存放自己使用自己创建的 [vue-template](https://github.com/bear-front-end/vue-template) 编写的项目
+* [using-vue-template/](https://github.com/cody1991/learn/tree/gh-pages/vue-learn/using-vue-template/vue-tutorial) 文件夹，存放自己使用自己创建的 [vue-template](https://github.com/bear-front-end/vue-template) 编写的项目
 
-[vue-example/](https://github.com/cody1991/learn/tree/gh-pages/vue-learn/vue-examples) 文件夹，存放官网的例子，以及自己找的一些 vue.js 练习
+* [vue-example/](https://github.com/cody1991/learn/tree/gh-pages/vue-learn/vue-examples) 文件夹，存放官网的例子，以及自己找的一些 vue.js 练习
 
-[vue-tutorial/](https://github.com/cody1991/learn/tree/gh-pages/vue-learn/vue-tutorial) 文件夹，主要存放一些网络教程的学习记录
+* [vue-tutorial/](https://github.com/cody1991/learn/tree/gh-pages/vue-learn/vue-tutorial) 文件夹，主要存放一些网络教程的学习记录
 
 <hr/>
 
 [learn vuex 文档学习](https://github.com/cody1991/learn/tree/gh-pages/finish/vuex)
+
+<hr/>
+
+[vue-tutorials - 一个简单全面的vue.js入门教程 对应学习记录](https://github.com/cody1991/awesome-vue/tree/master/vue-tutorials)
