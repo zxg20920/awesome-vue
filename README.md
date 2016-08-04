@@ -31,3 +31,5 @@
 <hr/>
 
 [vue-tutorials - 一个简单全面的vue.js入门教程 对应学习记录](https://github.com/cody1991/awesome-vue/tree/master/vue-tutorials)
+
+[个人博客 - vue-tutorial](http://cody1991.github.io/vue/2016/07/31/vue-tutorial.html)
