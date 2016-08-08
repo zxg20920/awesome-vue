@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <script src="./js/flexible.js"></script> -->
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <p v-text="message"></p>
+            <my-component></my-component>
+            <my-component>
+                <h1>Hello Vue.js</h1>
+            </my-component>
+            <template id="myComponent">
+                <div>
+                    <h2>{{msg}}</h2>
+                    <slot>如果没有内容分发，就使用这里的</slot>
+                    <button @click="showMsg">Show Message</button>
+                </div>
+            </template>
+            <template id="dialog-template">
+                <div class="dialogs">
+                    <div class="dialog" :class="{'dialog-active':show}">
+                        <div class="dialog-content">
+                            <div class="close rotate">
+                                <span class="iconfont icon-close" @click="close">X</span>
+                            </div>
+                            <slot name="header"></slot>
+                            <slot name="body"></slot>
+                            <slot name="footer"></slot>
+                        </div>
+                    </div>
+                    <div class="dialog-overlay"></div>
+                </div>
+            </template>
+            <modal-dialog :show.sync="show" :class="dialogClass">
+                <header class="dialog-header" slot="header">
+                    <h1 class="dialog-title">提示信息</h1>
+                </header>
+                <div class="dialog-body" slot="body">
+                    <p>你想在对话框中放什么内容都可以！</p>
+                    <p>你可以放一段文字，也可以放一些表单，或者是一些图片。</p>
+                </div>
+                <footer class="dialog-footer" slot="footer">
+                    <button class="btn" @click="closeDialog">关闭</button>
+                </footer>
+            </modal-dialog>
+            <button class=" btn btn-info" @click="openDialog('dialog-info')">提示信息对话框</button>
+            <button class=" btn btn-success" @click="openDialog('dialog-success')">提示成功对话框</button>
+            <button class=" btn btn-warning" @click="openDialog('dialog-warning')">提示警告对话框</button>
+            <button class=" btn btn-error" @click="openDialog('dialog-error')">提示错误对话框</button>
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
