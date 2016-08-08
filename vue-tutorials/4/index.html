@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <p v-text="message"></p>
+            <div id="searchBar">
+                Search
+                <input type="text" v-model="searchQuery">
+                <br/>
+                <p>{{searchQuery}}</p>
+                <simple-grid :data="gridData" :columns="gridColumns" :filter-key="searchQuery"></simple-grid>
+            </div>
+            <template id="grid-template">
+                <table>
+                    <thead>
+                        <tr>
+                            <th v-for="col in columns">
+                                {{col | capitalize}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="entry in data | filterBy filterKey">
+                            <td v-for="col in columns">
+                                {{entry[col]}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </template>
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

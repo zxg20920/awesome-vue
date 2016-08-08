@@ -15,14 +15,26 @@
     <div class="container">
         <div id="app">
             <p v-text="message"></p>
-            <my-component></my-component>
-            <script-component></script-component>
-            <script type="text/x-template" id="scriptComponent">
-                <div>This is a script component</div>
-            </script>
+            <table>
+                <thead>
+                    <tr>
+                        <th v-for="col in gridColumns">
+                            {{ col | capitalize}}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(index,entry) in gridData">
+                        <td v-for="col in gridColumns">
+                            {{entry[col]}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <script src="./js/vue.js"></script>
+    <script src="./js/vue-resource.min.js"></script>
     <script src="./js/common.js"></script>
 </body>
 

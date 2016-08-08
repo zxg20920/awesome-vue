@@ -12,6 +12,11 @@ var myComponent = Vue.extend({
     }
 });
 
+Vue.component('script-component', {
+    template: '#scriptComponent'
+});
+
+
 
 var app = new Vue({
     el: '#app',
