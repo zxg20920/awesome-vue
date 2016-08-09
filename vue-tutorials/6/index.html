@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/flexible.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <p v-text="message"></p>
+            <parent-component></parent-component>
+            <template id="parent-component">
+                <!-- 组件个数较多时，我们难以记住各个组件的顺序和位置，通过序号访问子组件不是很方便。 -->
+                <!-- 在子组件上使用v-ref指令，可以给子组件指定一个索引ID： -->
+                <child-component1 v-ref:cc1></child-component1>
+                <child-component2 v-ref:cc2></child-component2>
+                <button @click="showChildComponentData">显示子组件的数据</button>
+            </template>
+            <template id="child-component1">
+                <h2>This is child component 1</h2>
+                <button @click="showParentComponentData">显示父组件的数据</button>
+            </template>
+            <template id="child-component2">
+                <h2>This is child component 2</h2>
+            </template>
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
