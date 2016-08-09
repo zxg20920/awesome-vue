@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <script src="./js/flexible.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="form-group">
+                <label>Search</label>
+                <input type="text" class="search-input" v-model="searchQuery">
+            </div>
+        </div>
+        <div class="container">
+            <grid :data-list="people" :columns="columns" :search-key="searchQuery"></grid>
+        </div>
+        <template id="grid-template">
+            <table>
+                <thead>
+                    <tr>
+                        <th v-for="col in columns">
+                            {{col.name | capitalize}}
+                        </th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(index,entry) in dataList | filterBy searchKey">
+                        <td v-for="col in columns">
+                            <span v-if="col.isKey">
+                                    <!-- 这里加一个点击弹出编辑对话框的方法 -->
+                                    <a href="javascript:void(0)" @click="openEditItemDialog(entry[col.name])">{{entry[col.name]}}</a>
+                                </span>
+                            <span v-else>{{entry[col.name]}}</span>
+                        </td>
+                        <td class="text-center">
+                            <!-- 完成 这里加一个删除的按钮 -->
+                            <button class="btn-danger" @click="deleteItem(entry)">delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="container">
+                <!-- 这里加一个弹出创建对话框的方法 -->
+                <button class="btn" @click="openNewItemDialog('Create New Item')">Create</button>
+            </div>
+            <dialog :mode="mode" :title="title" :item="item" :fields="columns" @create-item="createItem" @update-item="updateItem"></dialog>
+        </template>
+        <!-- 对话框 -->
+        <!-- 
+            mode 1 是创建新的
+            mode 2 是修改现有的
+            item 是传入的项目
+            fields 是传入的列
+        -->
+        <template id="dialog-template">
+            <div class="dialogs">
+                <div class="dialog" :class="{'dialog-active':show}">
+                    <div class="dialog-content">
+                        <header class="dialog-header">
+                            <h1 class="dialog-title">{{title}}</h1>
+                        </header>
+                        <div class="dialog-body">
+                            <div class="form-group" v-for="field in fields">
+                                <label>{{field.name}}</label>
+                                <select v-if="field.dataSource" v-model="item[field.name]" :disabled="mode===2&&field.isKey">
+                                    <option :value="opt" v-for="opt in field.dataSource">{{opt}}</option>
+                                </select>
+                                <input type="text" v-else v-model="item[field.name]" :disabled="mode===2&&field.isKey">
+                            </div>
+                        </div>
+                        <footer class="dialog-footer">
+                            <div class="form-group">
+                                <label></label>
+                                <button class="btn-save" @click="save">Save</button>
+                                <button class="btn-close" @click="close">Close</button>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                <div class="dialog-overlay"></div>
+            </div>
+        </template>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

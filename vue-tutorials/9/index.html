@@ -37,7 +37,7 @@
                             <tr v-for="(index,entry) in dataList | filterBy searchKey">
                                 {{index}}
                                 <td v-for="col in columns ">
-                                    <span v-if="col.isKey"><a @click="openEidtItemDialog(index,'Edit item ' + entry[col.name])">{{entry[col.name]}}</a></span>
+                                    <span v-if="col.isKey"><a @click="openEditItemDialog(entry[col.name])">{{entry[col.name]}}</a></span>
                                     <span v-else>{{entry[col.name]}}</span>
                                 </td>
                                 <td class="text-center ">

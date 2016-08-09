@@ -8,7 +8,8 @@ var app = new Vue({
                 return {
                     mode: 0,
                     item: {},
-                    title: ''
+                    title: '',
+                    keyColumn: ''
                 }
             },
             components: {
@@ -31,6 +32,8 @@ var app = new Vue({
                         save: function() {
                             if (this.mode === 1) {
                                 this.$dispatch('create-item');
+                            } else if (this.mode === 2) {
+                                this.$dispatch('update-item');
                             }
                         }
                     },
@@ -40,6 +43,15 @@ var app = new Vue({
                         }
                     }
                 }
+            },
+            ready: function() {
+                for (var i = 0; i < this.columns.length; i++) {
+                    if (this.columns[i].isKey) {
+                        this.keyColumn = this.columns[i]['name'];
+                        break;
+                    }
+                }
+                console.log(this.keyColumn);
             },
             methods: {
                 deleteItem: function(index) {
@@ -55,6 +67,52 @@ var app = new Vue({
                     this.dataList.push(this.item);
                     this.$broadcast('showDialog', false);
                     this.item = {};
+                },
+                initItemForUpdate: function(p) {
+                    var c = c || {};
+                    console.log(p);
+                    // 弹出修改数据的对话框时，使用对象的深拷贝
+                    for (var i in p) {
+                        if (p.hasOwnProperty(i)) {
+                            if (typeof p[i] === 'object') {
+                                c[i] = Array.isArray(p[i]) ? [] : {}
+                                deepCopy(p[i], c[i]);
+                            } else {
+                                c[i] = p[i];
+                            }
+                        }
+                    }
+                    console.log(c);
+                    return c;
+                },
+                findItemByKey: function(key) {
+                    var keyColumn = this.keyColumn;
+                    for (var i = 0; i < this.dataList.length; i++) {
+                        if (this.dataList[i][keyColumn] === key) {
+                            console.log(this.dataList[i]);
+                            return this.dataList[i];
+                        }
+                    }
+                },
+                updateItem: function() {
+                    var keyColumn = this.keyColumn;
+                    for (var i = 0; i < this.dataList.length; i++) {
+                        if (this.dataList[i][keyColumn] === this.item[keyColumn]) {
+                            for (var j in this.item) {
+                                this.dataList[i][j] = this.item[j];
+                            }
+                            break;
+                        }
+                    }
+                    this.$broadcast('showDialog', false);
+                    this.item = {};
+                },
+                openEditItemDialog: function(key) {
+                    var currentItem = this.findItemByKey(key);
+                    this.title = 'Edit Item - ' + key;
+                    this.mode = 2;
+                    this.item = this.initItemForUpdate(currentItem);
+                    this.$broadcast('showDialog', true);
                 }
             }
         }
