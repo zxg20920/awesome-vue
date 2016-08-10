@@ -53,11 +53,5 @@ audio,canvas,img,video{vertical-align:middle}
   min-width: 320px;
   max-width: 750px;
   margin: 0 auto;
-  font-size: 0.32rem;
-}
-.demo {
-  text-align: center;
-}
-.demo .btn {
-  width: 7.46666667rem;
+  font-size: 16px;
 }
