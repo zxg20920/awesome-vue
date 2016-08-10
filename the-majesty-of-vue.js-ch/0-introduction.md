@@ -60,3 +60,29 @@ easy Vue is the JS Framework you need. “
 “Mark my words: Vue.js will sky-rocket in popularity in 2016. It’s that good.”
 
 — Jeffrey Way
+
+“Vue is what I always wanted in a JavaScript framework. It’s a framework that scales with you as a
+developer. You can sprinkle it onto one page, or build an advanced single page application with Vuex
+and Vue Router. It’s truly the most polished JavaScript framework I’ve ever seen.”
+
+— Taylor Otwell
+
+“Vue.js is the first framework I’ve found that feels just as natural to use in a server-rendered app as
+it does in a full-blown SPA. Whether I just need a small widget on a single page or I’m building a
+complex Javascript client, it never feels like not enough or like overkill.”
+
+— Adam Wathan
+
+“Vue.js has been able to make a framework that is both simple to use and easy to understand. It’s
+a breath of fresh air in a world where others are fighting to see who can make the most complex
+framework.”
+
+— Eric Barnes
+
+“The reason I like Vue.js is because I’m a hybrid designer/developer. I’ve looked at React, Angular
+and a few others but the learning curve and terminology has always put me off. Vue.js is the first
+JS framework I understand. Also, not only is it easy to pick up for the less confidence JS’ers, such as
+myself, but I’ve noticed experienced Angular and React developers take note, and liking, Vue.js. This
+is pretty unprecedented in JS world and it’s that reason I started London Vue.js Meetup.”
+
+—Jack Barham
