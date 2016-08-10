@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="https://bootswatch.com/flatly/bootstrap.css">
+    <link rel="stylesheet" href="https://keepfool.github.io/vue-tutorials/06.Router/basic/assets/css/custom.css">
+    <!-- <script src="./js/flexible.js"></script> -->
+</head>
+
+<body>
+    <div id="app">
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-2">
+                <div class="list-group">
+                    <!--使用指令v-link进行导航-->
+                    <a class="list-group-item" v-link="{ path: '/home',activeClass:'active'}">Home</a>
+                    <a class="list-group-item" v-link="{ path: '/about',activeClass:'active'}">About</a>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="panel">
+                    <div class="panel-body">
+                        <!--用于渲染匹配的组件-->
+                        <router-view></router-view>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-8">
+                <div class="well">
+                    {{{msg}}}
+                    <!-- <p>当前路径：<code>{{$route.path}}</code></p>
+                    <p>当前参数：<code>{{$route.params | json}}</code></p>
+                    <p>路由名称：<code>{{$route.name}}</code></p>
+                    <p>路由查询参数：<code>{{$route.query | json}}</code></p> -->
+                    <!--<p>路由匹配项：<code>{{$route.matched | json}}</code></p>-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <template id="home">
+        <div>
+            <h1>Home</h1>
+            <p>{{msg}}</p>
+        </div>
+        <div>
+            <ul class="nav nav-tabs">
+                <li :class="currentPath=='/home/news'?'active':''">
+                    <a v-link="{path:'/home/news'}">News</a>
+                </li>
+                <li :class="currentPath=='/home/message'?'active':''">
+                    <a v-link="{path:'/home/message'}">Message</a>
+                </li>
+            </ul>
+            <router-view></router-view>
+        </div>
+    </template>
+    <template id="news">
+        <ul>
+            <li>
+                <a v-link="{name:'detail',params:{id:'01'}}">    
+                    News 01
+                </a>
+            </li>
+            <li>
+                <a v-link="{name:'detail',params:{id:'02'}}">
+                    News 02
+                </a>
+            </li>
+            <li>
+                <a v-link="{ path: '/home/news/detail/03'}">
+                    News 03
+                </a>
+            </li>
+        </ul>
+        <div>
+            <router-view></router-view>
+        </div>
+    </template>
+    <template id="newsDetail">
+        <div>
+            News Detail - {{$route.params.id}}
+        </div>
+    </template>
+    <template id="message">
+        <ul>
+            <li>Message 01</li>
+            <li>Message 02</li>
+            <li>Message 03</li>
+        </ul>
+    </template>
+    <template id="about">
+        <div>
+            <h1>About</h1>
+            <p>This is the tutorial about vue-router.</p>
+        </div>
+    </template>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-router.min.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
