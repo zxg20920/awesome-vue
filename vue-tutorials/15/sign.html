@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <script src="./js/flexible.js"></script> -->
+</head>
+
+<body>
+    <div class="container">
+        <div id="app">
+            <div class="container text-center">
+                <span id="message">{{msg}}</span>
+            </div>
+            <div class="account-info">
+                <span v-if="userName">{{userName}} | <a href="#" @click="logout">注销</a></span>
+            </div>
+            <div class="login">
+                <div class="form-group">
+                    <label>电子邮箱</label>
+                    <input type="text" v-model="loginModel.username" />
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="text" v-model="loginModel.password" />
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <button @click="login">登录</button>
+                </div>
+            </div>
+            <div class="result">
+                <button @click="callApi">调用API</button>
+                API调用结果:{{result|json}}
+            </div>
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-resource.min.js"></script>
+    <script src="./js/sign.js"></script>
+</body>
+
+</html>

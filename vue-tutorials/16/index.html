@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>demo-lib-flexible</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="email=no" name="format-detection" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- <script src="./js/flexible.js"></script> -->
+    <link rel="stylesheet" href="http://211.149.193.19:8090/vue-tutorials/03.Ajax/jquery-zepto/fonts/iconfont.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="help">
+            <div class="container">
+                <div class="account-info">
+                    <span v-if="userName">{{ userName }} | <a href="#" @click="logout">Logout</a></span>
+                    <span v-else><a href="#" @click="popupLogin">Login</a> | <a href="#" @click="popupRegister">Register</a></span>
+                </div>
+            </div>
+            <loading v-show="showLoading"></loading>
+            <dialog :show.sync="showDialog">
+                <header class="dialog-header" slot="header">
+                    <h1 class="dialog-title">Server Error</h1>
+                </header>
+                <div class="dialog-body" slot="body">
+                    <p class="error">Oops,server has got some errors, error code: {{errorCode}}.</p>
+                    <div class="form-group">
+                        <label></label>
+                        <button @click="close">Close</button>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+        <div class="container">
+            <span id="message">{{msg|json}}</span>
+        </div>
+        <dialog v-bind:show.sync="showLogin">
+            <header class="dialog-header" slot="header">
+                <h1 class="dialog-title">Login</h1>
+            </header>
+            <div class="dialog-body" slot="body">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" v-model="loginModel.username" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="text" v-model="loginModel.password" />
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <button @click="login">Login</button>
+                    <button @click="closeLogin">Close</button>
+                </div>
+            </div>
+        </dialog>
+        <dialog v-bind:show.sync="showRegister">
+            <header class="dialog-header" slot="header">
+                <h1 class="dialog-title">Register</h1>
+            </header>
+            <div class="dialog-body" slot="body">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" v-model="registerModel.email" />
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="text" v-model="registerModel.password" />
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="text" v-model="registerModel.confirmPassword" />
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <button @click="register">Register</button>
+                    <button @click="closeRegister">Close</button>
+                </div>
+            </div>
+        </dialog>
+        <div class="container">
+            <grid :data-list="gridData" :columns="gridColumns" @load-entry="loadCustomer" @delete-entry="deleteCustomer"></grid>
+        </div>
+        <div class="container">
+            <div class="form-group">
+                <button @click="this.show=true">Create</button>
+            </div>
+        </div>
+        <dialog :show.sync="show">
+            <header class="dialog-header" slot="header">
+                <h1 class="dialog-title">{{item.customerId?'Edit Customer - ' + item.contactName :'Create New Customer'}}</h1>
+            </header>
+            <div class="dialog-body" slot="body">
+                <div class="form-group" v-show="item.customerId">
+                    <label>Customer Id</label>
+                    <input type="text" v-model="item.customerId" disabled="disabled">
+                </div>
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" v-model="item.companyName">
+                </div>
+                <div class="form-group">
+                    <label>Contact Name</label>
+                    <input type="text" v-model="item.contactName">
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="text" v-model="item.phone">
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <button @click="saveCustomer">Save</button>
+                    <button @click="close">Close</button>
+                </div>
+            </div>
+        </dialog>
+    </div>
+    <template id="grid-template">
+        <table>
+            <thead>
+                <tr>
+                    <th v-for="col in columns">
+                        {{col.name | capitalize}}
+                    </th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(index,entry) in dataList">
+                    <td v-for="col in columns">
+                        <span v-if="col.isKey"><a href="javascript:void(0)" @click="loadEntry(entry[col.name])">{{entry[col.name]}}</a></span>
+                        <span v-else>{{entry[col.name]}}</span>
+                    </td>
+                    <td>
+                        <button class="btn-danger" @click="deleteEntry(entry)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </template>
+    <template id="dialog-template">
+        <div class="dialogs">
+            <div class="dialog" :class="{'dialog-active':show}">
+                <div class="dialog-content">
+                    <slot name="header"></slot>
+                    <slot name="body"></slot>
+                    <slot name="footer"></slot>
+                </div>
+            </div>
+            <div class="dialog-overlay"></div>
+        </div>
+    </template>
+    <template id="loading-template">
+        <div class="loading-overlay">
+            <div class="sk-three-bounce">
+                <div class="sk-child sk-bounce1"></div>
+                <div class="sk-child sk-bounce2"></div>
+                <div class="sk-child sk-bounce3"></div>
+            </div>
+        </div>
+    </template>
+    <!-- <script src="http://7xnv74.com1.z0.glb.clouddn.com/static/lib/jquery/jquery-2.1.4.min.js"></script> -->
+    <script src="./js/vue.js"></script>
+    <script src="./js/vue-resource.min.js"></script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>
