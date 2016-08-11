@@ -335,4 +335,4 @@ You may begin your journey!
 Although we have taken every care to ensure the accuracy of our content, mistakes do happen. If
 you find a mistake in the book we would be grateful if you could report it to us. By doing so, you
 can protect other readers from frustration and help us improve subsequent versions of this book. If
-you find any errata, please submit an issue on our [github reposiroty](https://github.com/hootlex/the-majesty-of-vuejs)
+you find any errata, please submit an issue on our [github repository](https://github.com/hootlex/the-majesty-of-vuejs)

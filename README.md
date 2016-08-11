@@ -6,6 +6,10 @@
 
 * [vue-tutorials - 一个简单全面的vue.js入门教程](https://github.com/keepfool/vue-tutorials)
 
+## 翻译学习
+
+* 翻译学习 [the-majesty-of-vuejs](https://leanpub.com/vuejs) 一书。 翻译和学习记录在 [the-majesty-of-vue.js-ch](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch)
+
 ## 个人 learn 的记录
 
 [learn - vue2 文档学习](https://github.com/cody1991/learn/tree/gh-pages/vue2)
