@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Hello Vue</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Hello, {{name}}</h1>
+        <!-- 把input和变量name绑定起来 -->
+        <!-- binded input to 'name' -->
+        <input type="text" v-model="name" placeholder="Name">
+        <!-- 展示Vue实例的所有data数据，并且添加了一个JSON过滤器 -->
+        <!-- displays all data within Vue instance filtered through JSON -->
+        <pre>{{$data | json}}</pre>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+            // 绑定空的变量到input元素上
+            //empty variable each binded to input
+            name: ''
+        }
+    });
+    </script>
+</body>
+
+</html>
