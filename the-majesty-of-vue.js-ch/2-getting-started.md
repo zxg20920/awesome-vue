@@ -1,3 +1,5 @@
+译者注：本章所有的代码可以在 [1-getting-started](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/1-getting-started) 查看
+
 # 开始
 
 # Getting Started
