@@ -1,3 +1,5 @@
+(有部分删减)
+
 # 介绍
 
 # Introduction
@@ -257,4 +259,80 @@ suffers from the same performance issues with Angular.)
 
 For updated comparisons feel free to check Vue.js guide.
 
-(框架对比的后面补全，先开始vue的学习之旅吧。)
+(框架对比的翻译后面补全)
+
+## 欢迎
+
+## Welcome
+
+### 关于这本书
+
+### About the Book
+
+这本书会带你快速完整的学习vue.js框架
+
+This book will guide you through the path of the rapidly spreading Javascript Framework called
+Vue.js!
+
+前不久，我们开始了一个基于Laravel和vue.js的项目。通读了vue.js的官方指导还有一些教程以后我们发现关于vue.js的资源很缺乏。在开发我们的项目的时候我们得到了非常多的经验，由此而生我们决定写一本书来分享我们得到的知识给这个世界。
+
+Some time ago, we started a new project based on Laravel and Vue.js. After thoroughly reading
+Vue.js guide and a few tutorials, we discovered a lack of resources about Vue.js around the web.
+During the development of our project, we gained a lot of experience, so we came up with the idea
+to write this book in order to share our acquired knowledge with the world.
+
+这本书的风格是非正式的，直观的，易于遵循的，里面的例子都有适当详细的解释，足够让所有人都看得懂。
+
+This book is written in an informal, intuitive, and easy-to-follow format, wherein all examples are
+appropriately detailed enough to provide adequate guidance to whoever.
+
+我们会从非常基础的例子开始，并且通过这些例子可以让你全面覆盖vue.js特性的学习。而在最后你会有能力快速创建一个前端应用程序，和提高你把vue.js整合到现有项目的能力。
+
+We’ll start from the very basics and through many examples we’ll cover the most significant features
+of Vue.js. By the end of this book you will be able to create fast front end applications and increase
+the performance of your existing projects with Vue.js integration.
+
+### 这本书适合谁
+
+### Who is this Book for
+
+适合那些使用了不少时间去学习前端开发框架的人，看过Bootstrap,Javascript和其他很多的Javscript框架。这本书适合那些对学习一个轻巧简单的Javascript框架感兴趣的人。不需要太多的知识储备，但是如果对HTML和javascript熟悉的话再好不过了。如果你都不知道string和object有什么区别的话，建议先进行一些学习。
+
+Everyone who has spent time to learn modern web development, has seen Bootstrap, Javascript and
+many Javascript frameworks. This book is for anyone interested in learning a lightweight and simple
+Javascript framework. No excessive knowledge is required, though it would be good to be familiar
+with HTML and Javascript. If you dont’t know what the difference is between a string and an object,
+maybe you need to do some digging first.
+
+这本书同样对于那些已经熟知vue.js并且想扩充他们关于这方面的知识的有有益。
+
+This book is also useful for any reader who already know their way around Vue.js and want to
+expand their knowledge.
+
+### 作业
+
+### Homework
+
+最好的学习代码的方式就是写代码，所以我们在大部分的章节末尾都准备了习题让你去解决来检验你的学习成果。我们强烈建立你尽全力去解决它们，通过它们更好的理解vue.js。不要害怕去测试你自己的想法，一点点的努力都有很长的路需要去走。或许一些不同的案例或者道路会给你正确的想法。当然我们也不是无情的，我们会提供提示和潜在的解决方案。
+
+The best way to learn code is to write code, so we have prepared one exercise at the end
+of most chapters for you to solve and actually test yourself on what you have learned. We
+strongly recommend you to try as much as possible to solve them and though them gain a better
+understanding of Vue.js. Don’t be afraid to test your ideas, a little effort goes a long way! Maybe a
+few different examples or ways will give you the right idea. Of course we are not merciless, hints
+and potential solutions will be provided!
+
+你可以开始你的旅程了！
+
+You may begin your journey!
+
+### 错误
+
+### Errata
+
+即使我们已经非常小心地去保证内容的正确性，错误还是会出现的。如果你发现了书中的一些错误，我们非常感谢你汇报给我们。你可以保护其他读者免于挫折感，帮助我们在以后的版本得到提升。如果你发现了任何的错误，请提交问题到我们的[github 仓库](https://github.com/hootlex/the-majesty-of-vuejs)
+
+Although we have taken every care to ensure the accuracy of our content, mistakes do happen. If
+you find a mistake in the book we would be grateful if you could report it to us. By doing so, you
+can protect other readers from frustration and help us improve subsequent versions of this book. If
+you find any errata, please submit an issue on our [github reposiroty](https://github.com/hootlex/the-majesty-of-vuejs)
