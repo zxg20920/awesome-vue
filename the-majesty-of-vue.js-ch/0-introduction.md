@@ -25,10 +25,10 @@ easy to pick up and to integrate with other libraries or existing projects. On t
 used in combination with proper tooling and supporting libraries, Vue.js is also perfectly capable of
 powering sophisticated Single-Page Applications.
 
-如果你是一个经验丰富的前端开发工程师，而且想知道vue.js和其他库/框架的对比，可以前去查看[Comparison with Other Frameworks chapter](#和其他框架的对比)章节
+如果你是一个经验丰富的前端开发工程师，而且想知道vue.js和其他库/框架的对比，可以前去查看[和其他框架的对比](#和其他框架的对比)章节
 
 If you are an experienced frontend developer and want to know how Vue.js compares to other
-libraries/frameworks, check out the [Comparison with Other Frameworks chapter](#Comparison with Other Frameworks)
+libraries/frameworks, check out the [comparison-with-other-frameworks-chapter](#Comparison with Other Frameworks)
 
 如果你有兴趣想看到更多有关vue.js核心的信息的话，可以看看[vue.js的官网指导](http://vuejs.org/guide/overview.html)
 
