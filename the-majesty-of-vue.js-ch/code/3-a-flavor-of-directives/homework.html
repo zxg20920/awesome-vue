@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <!-- || 操作符是OR或操作 -->
+            <!-- the || is the logical operator OR -->
+            <div v-if="gender=='male' || gender=='female'">
+                <h1>
+                        Hello,
+                        <!-- 如果性别是male的话渲染出来 -->
+                        <!-- render span if 'gender' equals to 'male' -->
+                        <span v-show="gender=='male'">Mister {{name}}</span>
+                        <!-- 如果性别是female的话渲染出来 -->
+                        <!-- render span if 'gender' equals to 'female' -->
+                        <span v-show="gender=='female'">Miss {{name}}</span>
+                        <!-- （译者注：这里男女显示可以切换回比较频繁，所以都用了v-show） -->
+                    </h1>
+            </div>
+            <!-- v-else紧跟着v-if块，才能正常工作 -->
+            <!-- v-else immediately follows v-if block to work -->
+            <h1 v-else>Enter a valid gender, human.</h1>
+            <label for="gender">Enter your gender</label>
+            <input type="text" v-model="gender" id="gender" class="form-control">
+            <label for="name">Enter your name</label>
+            <input type="text" v-model="name" id="name" class="form-control">
+            <pre>{{$data | json}}</pre>
+        </div>
+    </div>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'Universe',
+            gender: 'female'
+        }
+    });
+    </script>
+</body>
+
+</html>

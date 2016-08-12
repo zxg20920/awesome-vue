@@ -1,3 +1,5 @@
+译者注：本章所有的代码可以在 [3-a-flavor-of-directives](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/3-a-flavor-of-directives) 查看
+
 # 指令的简单介绍
 
 # A Flavor of Directives
@@ -323,3 +325,90 @@ see the h2 using this very simple syntax of Vue v-if and v-else. As you can see 
 v-if as well as v-show. Both give us the same result. Simple as a pimple!
 
 ## v-if vs. v-show
+
+尽管我们已经提到了v-if和v-show的区别，我们可以更加深入。有些问题可能在我们使用它们的时候显现出来。v-show和v-if之间有很大的区别吗？在一些情景下它们的性能会被影响吗？会存在一些问题，你可能使用这个比使用那个更好吗？你可能感受到了使用v-show在大部分情境下会消耗更多的时间当页面渲染的时候。对比之下,v-if是真正的有条件的。
+
+Even though we have already mentioned a difference between v-if and v-show , we can deepen a bit
+more. Some questions may arise out of their use. Is there a big difference between using v-show and
+v-if? Is there a situation where performance is affected? Are there problems where you’re better
+off using one or the other? You might experience that the use of v-show on a lot of situations causes
+bigger time of load during page rendering. In comparison, v-if is truly conditional according to the
+guide of Vue.js.
+
+当使用v-if的时候，如果条件在一开始渲染的时候是false，vue不会做任何事情。部分的编译不会开始知道条件变成真。一般来说，v-if有更多的切换消耗，而w-show有更高的初始化渲染消耗。所以使用v-show如果你经常需要切换一些东西，而使用v-if如果条件看起来基本不会改变的话。
+
+When using v-if, if the condition is false on initial render, it will not do anything
+- partial compilation won’t start until the condition becomes true for the first time.
+Generally speaking, v-if has higher toggle costs while v-show has higher initial render
+costs. So prefer v-show if you need to toggle something very often, and prefer v-if if the
+condition is unlikely to change at runtime.
+
+所以，使用哪个主要看你的需求了。
+
+So, when to use which really depends on your needs.
+
+## 作业
+
+## Homework
+
+按照之前的作业练习，你需要去扩展一些功能。用户现在连同姓名和性别一起输入。如果用户是男性，头部会用“Hello Mister {{name}}”和用户打招呼，如果是一个女性，用“Hello Miss {{name}}”打招呼
+
+Following the previous homework exercise, you should try to expand it a bit. The user now types in
+his gender along with his name. If user is a male, then the heading will greet the user with “Hello
+Mister {{name}}”. If user is a female, then “Hello Miss {{name}}” should appear instead.
+
+如果性别不是男的也不是女的，头部会显示如下的警告"Enter a valid gender,human."
+
+When gender in neither male or female then the user should see the warning heading “Enter a valid
+gender, human.”.
+
+    <html>
+
+    <head>
+        <title>Hello Vue</title>
+        <link rel="stylesheet" href="../../lib/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="container">
+                <!-- || 操作符是OR或操作 -->
+                <!-- the || is the logical operator OR -->
+                <div v-if="gender=='male' || gender=='female'">
+                    <h1>
+                            Hello,
+                            <!-- 如果性别是male的话渲染出来 -->
+                            <!-- render span if 'gender' equals to 'male' -->
+                            <span v-show="gender=='male'">Mister {{name}}</span>
+                            <!-- 如果性别是female的话渲染出来 -->
+                            <!-- render span if 'gender' equals to 'female' -->
+                            <span v-show="gender=='female'">Miss {{name}}</span>
+                            <!-- （译者注：这里男女显示可以切换回比较频繁，所以都用了v-show） -->
+                        </h1>
+                </div>
+                <!-- v-else紧跟着v-if块，才能正常工作 -->
+                <!-- v-else immediately follows v-if block to work -->
+                <h1 v-else>Enter a valid gender, human.</h1>
+                <label for="gender">Enter your gender</label>
+                <input type="text" v-model="gender" id="gender" class="form-control">
+                <label for="name">Enter your name</label>
+                <input type="text" v-model="name" id="name" class="form-control">
+                <pre>{{$data | json}}</pre>
+            </div>
+        </div>
+        </div>
+        <script src="../../lib/vue.js"></script>
+        <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Universe',
+                gender: 'female'
+            }
+        });
+        </script>
+    </body>
+
+    </html>
+
+译者注：本章所有的代码可以在 [3-a-flavor-of-directives](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/3-a-flavor-of-directives) 查看
