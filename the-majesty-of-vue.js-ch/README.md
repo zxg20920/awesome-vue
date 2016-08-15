@@ -39,3 +39,9 @@ lib/ 存放库或者框架
 [3-a-flavor-of-directives | 代码](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/3-a-flavor-of-directives)
 
 <hr/>
+
+[4-list-rendering.md | 源文件](https://github.com/cody1991/awesome-vue/blob/master/the-majesty-of-vue.js-ch/4-list-rendering.md)
+
+[4-list-rendering.md | 博客地址](http://cody1991.github.io/vue/2016/08/15/the-majesty-of-vue.js-4-list-rendering.html)
+
+[4-list-rendering.md | 代码](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/4-list-rendering)

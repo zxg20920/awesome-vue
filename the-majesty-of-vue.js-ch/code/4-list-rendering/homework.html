@@ -29,6 +29,7 @@
     </div>
     <script src="../../lib/vue.js"></script>
     <script>
+    // 自定义过滤器old返回那些符合条件的项目的数组
     // custom filter 'old' returns an array of items that satisfy the given condition
     Vue.filter('old', function(people) {
         return people.filter(function(item) {
