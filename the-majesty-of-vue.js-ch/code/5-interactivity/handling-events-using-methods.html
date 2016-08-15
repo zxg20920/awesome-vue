@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <button v-on:click="upvote">
+            Upvote!{{upvotes}}
+        </button>
+        <button @click="upvote">
+            Upvote!{{upvotes}}
+        </button>
+        <pre>{{$data|json}}</pre>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script>
+    new Vue({
+        el: '.container',
+        data: {
+            upvotes: 0
+        },
+        // 在methods对象下定义方法
+        // define methods under the **`methods`** object
+        methods: {
+            upvote: function() {
+                // 在方法里面的this指代Vue实例
+                // // **`this`** inside methods points to the Vue instance
+                this.upvotes++;
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
