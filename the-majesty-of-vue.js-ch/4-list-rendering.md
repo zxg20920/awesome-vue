@@ -1,3 +1,5 @@
+译者注：本章所有的代码可以在 [4-list-rendering](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/4-list-rendering) 查看
+
 # 列表渲染
 
 # List Rendering
@@ -748,3 +750,5 @@ returns all people older than 55 years old.
 
 Feel free to fill the array with your own data. Be careful to add people with age older and younger
 than 55 to ensure your filter is working properly. Go ahead!
+
+译者注：本章所有的代码可以在 [4-list-rendering](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/4-list-rendering) 查看
