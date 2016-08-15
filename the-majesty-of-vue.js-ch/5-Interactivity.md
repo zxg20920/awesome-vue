@@ -267,3 +267,74 @@ Even though the following code seems fine, our calculator does not work as expec
     </body>
 
     </html>
+
+如果你尝试运行这段代码，你会发现每当calculate按钮被点击的时候，它会重新加载页面而非计算。
+
+If you try and run this code yourself, you will find out that when the “calculate” button is clicked,
+instead of calculating, it reloads the page.
+
+这是有意义的，当你点击calculate的时候，在后台，你提交了表格所以页面重新加载了。
+
+This makes sense because when you click “calculate”, in the background, you are submitting the
+form and thus the page reloads.
+
+为了防止表格的提交，我们必须取消onsubmit事件的默认行为。这是一个很常见的需求：在我们的事件处理器方法里面调用`event.preventDefault()`。在我们的例子中事件处理器方法叫做calculate
+
+To prevent the submission of the form, we have to cancel the default action of the onsubmit event. It
+is a very common need to call event.preventDefault() inside our event handling method. In our
+case the event handling method is called calculate.
+
+所以，我们的方法会变成这样：
+
+So, our method will become:
+
+    calculate: function() {
+        event.preventDefault();
+        switch (this.operator) {
+            case "+":
+                this.c = this.a + this.b;
+                break;
+            case "-":
+                this.c = this.a - this.b;
+                break;
+            case "*":
+                this.c = this.a * this.b;
+                break;
+            case "/":
+                this.c = this.a / this.b;
+                break;
+        }
+    }
+
+尽管我们可以在方法里面这样简单的书写，这样会更加好：方法是纯粹的代码逻辑处理，而不应该有处理DOM事件的细节。
+
+Although we can do this easily inside methods, it would be better if the methods can be purely
+ignorant about data logic rather than having to deal with DOM event details.
+
+(译者注：下面的内容是原著的，但是内容有错误。.stop并不是阻止事件默认的行为而是阻止冒泡，所以下面的例子中如果添加.stop的话，页面还是会刷新。请注意一下。)
+
+Vue.js会给v-on提供两个事件修饰符来住址事件的默认行为
+
+Vue.js provides two event modifiers for v-on to prevent the event default behavior:
+
+* .prevent
+
+* .stop
+
+所以，使用他们我们的提交按钮会改变表格：
+
+So, using one of them, our submit button will change from:
+
+    <button class="btn btn-primary" type="submit" @click="calculate">Calculate</button>
+
+    to:
+
+    <button type="submit" @click.prevent="calculate">Calculate</button>
+
+    or:
+
+    <button type="submit" @click.stop="calculate">Calculate</button>
+
+我们现在可以安全的移除在calculate方法里面的`event.preventDefault()`语句了
+
+And we can now safely remove event.preventDefault() from our calculate method

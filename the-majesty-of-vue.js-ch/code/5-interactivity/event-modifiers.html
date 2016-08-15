@@ -21,7 +21,7 @@
             <!-- 注意到这里传入了一个number的属性，希望我们传入input的值是一个数字 -->
             <!-- Notice here the special attribute 'number' is passed in order to parse inputs as numbers.-->
             <input number v-model="b" class="form-control">
-            <button class="btn btn-primary" type="submit" @click="calculate">Calculate</button>
+            <button class="btn btn-primary" type="submit" @click.prevent="calculate">Calculate</button>
         </form>
         <h2>Result: {{a}}  {{operator}}  {{b}} = {{c}}</h2>
         <pre>{{$data|json}}</pre>
@@ -38,6 +38,7 @@
         },
         methods: {
             calculate: function() {
+                // event.preventDefault();
                 switch (this.operator) {
                     case "+":
                         this.c = this.a + this.b;
