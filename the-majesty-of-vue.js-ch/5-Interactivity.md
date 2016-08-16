@@ -338,3 +338,87 @@ So, using one of them, our submit button will change from:
 我们现在可以安全的移除在calculate方法里面的`event.preventDefault()`语句了
 
 And we can now safely remove event.preventDefault() from our calculate method
+
+## 键修饰符
+
+## key modifiers
+
+如果你在其中一个正在聚焦的input输入框敲击enter键的时候，你会发现页面又重新加载而不是计算。这是因为我们禁止了提交按钮的默认行为，而没有禁止input输入框的默认行为（译者注：发现enter的时候并没有刷新页面，而是正常计算）
+
+If you hit enter when you are focused in one of the inputs, you will notice that the page reloads
+again instead of calculating. This happens because we have prevented the behavior of the submit
+button but not of the inputs.
+
+为了修复它，我们必须使用'键修饰符'
+
+To fix this, we have to use ‘Key Modifiers’
+
+    <input v-model="a" @keyup.enter="calculate">
+
+    <input v-model="b" @keyup.enter="calculate">
+
+如果你一个表格里面有非常多的input输入框，按钮和其他你需要禁止他们默认的提交行为，你可以修改form表格的提交事件。比如：`<form @submit.prevent=”calculate”>`
+
+When you have a form with a lot of inputs/buttons/etc and you need to prevent their
+default submit behavior you can modify the submit event of the form. Example: `<form @submit.prevent=”calculate”>`
+
+最终，计算器很好地运行了起来
+
+Finally, the calculator is up and running.
+
+## 计算属性
+
+## Computed Properties
+
+Vue.js的行内表达式非常方便，但是对于那些更加复杂的逻辑，你应该使用计算属性。实际上，计算属性是一种它们的值依赖于其他因素的变量。
+
+Vue.js inline expressions are very convenient, but for more complicated logic, you should use
+computed properties. Practically, computed properties are variables which their value depends on
+other factors.
+
+计算属性看起来像函数，但是你可以把它们作为属性来应用。但是有一个显著的区别，每当计算属性依赖的因素变化的时候，计算属性的值会重新被计算
+
+Computed properties work like functions that you can use as properties. But there is a significant
+difference, every time a dependency of a computed property changes, the value of the computed
+property re-evaluates.
+
+在Vue.js里面，你可以在Vue实例里面的computed对象里面定义计算属性
+
+In Vue.js, you define computed properties within the computed object inside your Vue instance.
+
+    <html>
+
+    <head>
+        <title>Hello Vue</title>
+        <link rel="stylesheet" href="../../lib/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            a={{a}},b={{b}}
+            <pre>{{$data|json}}</pre>
+        </div>
+        <script src="../../lib/vue.js"></script>
+        <script>
+        new Vue({
+            el: '.container',
+            data: {
+                a: 1
+            },
+            computed: {
+                // a computed getter
+                b: function() {
+                    // this指向Vue实例
+                    // **`this`** points to the Vue instance
+                    return this.a + 1;
+                }
+            }
+        });
+        </script>
+    </body>
+
+    </html>
+
+This is a basic example demonstrating the use of computed properties. We’ve set two variables, the
+first, a, is set to 1 and the second, b, will be set by the returned result of the function inside the
+computed object. In this example the value of b will be set to 2.
