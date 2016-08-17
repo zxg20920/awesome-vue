@@ -48,8 +48,8 @@ lib/ 存放库或者框架
 
 <hr/>
 
-[5-interactivity.md | 源文件](https://github.com/cody1991/awesome-vue/blob/master/the-majesty-of-vue.js-ch/5-interactivity.md)
+[5-interactivity | 源文件](https://github.com/cody1991/awesome-vue/blob/master/the-majesty-of-vue.js-ch/5-interactivity.md)
 
-[5-interactivity.md | 博客地址](http://cody1991.github.io/vue/2016/08/17/the-majesty-of-vue.js-5-interactivity.html)
+[5-interactivity | 博客地址](http://cody1991.github.io/vue/2016/08/17/the-majesty-of-vue.js-5-interactivity.html)
 
-[5-interactivity.md | 代码](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/5-interactivity)
+[5-interactivity | 代码](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/5-interactivity)
