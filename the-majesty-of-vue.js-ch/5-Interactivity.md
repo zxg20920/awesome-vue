@@ -15,7 +15,7 @@ like a Calculator, running nice and easy.
 
 ## Event handing
 
-HTML事件是发生在HTML元素上的。当vue在HTML页面使用的时候，可以获取到那些事件
+HTML事件是发生在HTML元素上的。当vue在HTML页面使用的时候，可以获取到那些事件.
 
 HTML events are things that happen to HTML elements. When Vue.js is used in HTML pages, it
 can react to these events.
