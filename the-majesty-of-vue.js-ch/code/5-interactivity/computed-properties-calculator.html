@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="../../lib/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Type 2 numbers and choose operation.</h1>
+        <form class="form-inline">
+            <input number v-model="a" class="form-control">
+            <select v-model="operator" class="form-control">
+                <option selected>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+            </select>
+            <input number v-model="b" class="form-control">
+        </form>
+        <h2>Result: {{a}}  {{operator}}  {{b}} = {{c}}</h2>
+        <pre>{{$data|json}}</pre>
+    </div>
+    <script src="../../lib/vue.js"></script>
+    <script>
+    new Vue({
+        el: '.container',
+        data: {
+            a: 1,
+            b: 2,
+            operator: ''
+        },
+        computed: {
+            c: function() {
+                // event.preventDefault();
+                switch (this.operator) {
+                    case "+":
+                        return this.a + this.b;
+                        break;
+                    case "-":
+                        return this.a - this.b;
+                        break;
+                    case "*":
+                        return this.a * this.b;
+                        break;
+                    case "/":
+                        return this.a / this.b;
+                        break;
+                }
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>

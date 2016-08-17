@@ -424,3 +424,279 @@ In Vue.js, you define computed properties within the computed object inside your
 This is a basic example demonstrating the use of computed properties. We’ve set two variables, the
 first, a, is set to 1 and the second, b, will be set by the returned result of the function inside the
 computed object. In this example the value of b will be set to 2.
+
+    <html>
+
+    <head>
+        <title>Hello Vue</title>
+        <link rel="stylesheet" href="../../lib/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            a={{a}},b={{b}}
+            <input type="text" v-model="a">
+            <pre>{{$data|json}}</pre>
+        </div>
+        <script src="../../lib/vue.js"></script>
+        <script>
+        new Vue({
+            el: '.container',
+            data: {
+                a: 1
+            },
+            computed: {
+                // a computed getter
+                b: function() {
+                    // this指向Vue实例
+                    // **`this`** points to the Vue instance
+                    return this.a + 1;
+                }
+            }
+        });
+        </script>
+    </body>
+
+    </html>
+
+这个例子和上面的例子基本一样，只有一个区别就是加了一个input输入框和a绑定。这样设计的想法是改变绑定的属性然后实时更新b的值。但是你会发现，它工作起来并不是我们想要的
+
+Above there is the same example as before with one difference, there is an input binded to the a
+variable. The desired outcome is to change the value of the binded attribute and update instantly
+the result of b. But what you will notice here, is that it does not work as we would expect.
+
+如果你运行这段代码，给a变量输入一个数字5，你希望b的值是6，但是结果并不是这样的,b会被设置为51
+
+If you run this code and enter an input for variable a the number 5, you expect that b will be set to
+6. Sure, but it doesn’t, b is set to 51.
+
+为什么会发生这样的事呢？好的，可能你已经想到了。b从输入框("a")里面拿到的值是一个字符串，然后会把数字1加在它的末尾。
+
+Why is this happening? Well, as you might have already thought of, b takes the given value from
+the input (“a”) as a string, and appends the number 1 at the end of it.
+
+一个解决方案就是使用parseFloat()方法，来解析字符串a，返回一个浮点数字
+
+One solution to solve this problem is to use the parseFloat() function that parses a string and
+returns a floating point number
+
+    new Vue({
+        el: '.container',
+        data: {
+            a: 1
+        },
+        computed: {
+            // a computed getter
+            b: function() {
+                // this指向Vue实例
+                // **`this`** points to the Vue instance
+                // return this.a + 1;
+                return parseFloat(this.a) + 1;
+            }
+        }
+    });
+
+也想到另外一种方法，使用`<input type="number">`,这个输入框必须包含数字值
+
+Another option that comes to mind, is to use the `<input type="number">` that is used for input fields
+that should contain a numeric value.
+
+但是有一个更加简洁的方法。使用Vue.js，如果你想要用户每次输入的都是数字，你可以给input输入框加入number属性
+
+But there is a more neat way. With Vue.js, whenever you want your user inputs to be automatically
+persisted as numbers, you can add the special attribute number to these inputs.
+
+    <input type="text" v-model="a" number>
+
+number属性可以让我们毫不费力地得到我们想要的结果
+
+The number attribute is going to give us the desired result without any further effort.
+
+为了展示计算属性更多的用法，我们准备用它们来创建我们前面展示过的计算器，但是这次使用的是计算属性而不是方法。
+
+To demonstrate a wider picture of computed properties, we are going to make use of them and build
+the calculator we have showed before again, but this time using computed properties instead of
+methods.
+
+让我们从一个简单的例子开始，计算属性c是a加b的和
+
+Lets start with a simple example, where a computed property c contains the sum of a plus b.
+
+    <html>
+
+    <head>
+        <title>Hello Vue</title>
+        <link rel="stylesheet" href="../../lib/bootstrap.min.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Enter 2 numbers to calculate their sum.</h1>
+            <form class="form-inline">
+                <input type="text" v-model="a" number class="form-control"> +
+                <input type="text" v-model="b" number class="form-control">
+            </form>
+            <h2>Result: {{a}} + {{b}} = {{c}} </h2>
+            <pre>{{$data|json}}</pre>
+        </div>
+        <script src="../../lib/vue.js"></script>
+        <script>
+        new Vue({
+            el: '.container',
+            data: {
+                a: 1,
+                b: 2
+            },
+            computed: {
+                c: function() {
+                    return this.a + this.b
+                }
+            }
+        });
+        </script>
+    </body>
+
+    </html>
+
+初始化的代码已经好了，现在用户可以输入两个数字然后得到它们的和。计算器的目标是可以进行四个基本的运算，让我们继续构建吧。
+
+The initial code is ready, and at this point the user can type in 2 numbers and get the sum of these
+two. A calculator that can do the four basic operations is the goal, so let’s continue building!
+
+HTML代码和之前章节我们构建的计算器是一样的（除了在这里我们不需要按钮），这里只会给你看javascript代码
+
+Since the HTML code will be the same with the calculator we build in the previous section of
+this chapter (except now we don’t need a button), I am gonna show you here only the Javascript
+codeblock.
+
+    new Vue({
+        el: '.container',
+        data: {
+            a: 1,
+            b: 2,
+            operator: ''
+        },
+        computed: {
+            c: function() {
+                // event.preventDefault();
+                switch (this.operator) {
+                    case "+":
+                        return this.a + this.b;
+                        break;
+                    case "-":
+                        return this.a - this.b;
+                        break;
+                    case "*":
+                        return this.a * this.b;
+                        break;
+                    case "/":
+                        return this.a / this.b;
+                        break;
+                }
+            }
+        }
+    });
+
+计算器已经可以使用了。我们只要把那些原本在calculate方法里面的代码改成计算属性c的代码就完成了。每当你改变a或者b的值，结果都会实时更新。我们不需要按钮，没有事件或者其他的。非常棒吧？
+
+The calculator is ready to be put to use. We just had to move whatever was inside calculate method
+to the computed property c and we are done! Whenever you change the value of a or b the result
+updates in real time! We don’t need no buttons, no events, nor anything. How awesome is that??
+
+注意一下，这里有一个通过的方法就是需要有一个语句来避免除法的时候出现错误。好消息就是已经有这种缺陷的预测方案。如果一个用户输入1/0，结果会自动变成无穷大。如果一个用户输入文本，结果会显示"not a number"
+
+Note here that a normal approach would be to have an if statement to avoid error for the
+division. The best part about this is that there is already a prediction for this kind of flaws.
+If the user types 1/0 the result automatically becomes infinity! If the user types a text the
+displayed result is “not a number”.
+
+### 使用计算属性来过滤一个数组
+
+### Using Computed Properties to Filter an Array
+
+一个输出属性也可以用来过滤数组。使用计算属性来处理过滤一个数组让你有更加深入的控制和更大的灵活性，因为它完全是javascript，也可以让你在任何地方都获取到过滤后的结果。比如你可以在任何地方获取到过滤后的数组的长度
+
+A computed property can also be used to filter an array. Using a computed property to perform array
+filtering gives you in-depth control and more flexibility, since it’s full JavaScript, and allows you to access the filtered result elsewhere. For example you can get the length of a filtered array elsewhere
+in your code
+
+来看看它是怎么工作的，我们会过滤之前在自定义过滤器例子中的famous stories数组。这里我们会创建一个计算属性来返回过滤后的数组。
+
+To see how it’s done, we will filter the famous stories as we did in the Custom Filter example. This
+time we will create a computed property that returns the filtered Array.
+
+    new Vue({
+        el: '.container',
+        data: {
+            stories: [{
+                plot: "I crashed my car today!",
+                writer: 'Alex',
+                upvotes: 28
+            }, {
+                plot: "Yesterday,someone stole my bag!",
+                writer: 'John',
+                upvotes: 8
+            }, {
+                plot: "Someone ate my chocolate...",
+                writer: 'John',
+                upvotes: 58
+            }]
+        },
+        computed: {
+            famous: function() {
+                return this.stories.filter(function(item) {
+                    return item.upvotes > 25;
+                });
+            }
+        }
+    });
+
+在HTML代码里面，我们会渲染计算属性famous，而不是stories数组
+
+In our HTML code, instead of stories array, we will render the famous computed property.
+
+    <div class="container">
+        <h1>Let's hear some stories! ({{famous.length}})</h1>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item" v-for="(index,story) in famous">
+                    {{index}}. {{story.writer}} said "{{story.plot}}" and vpvoted {{story.upvotes}} times.
+                </li>
+            </ul>
+        </div>
+        <pre>{{$data|json}}</pre>
+    </div>
+
+就是这样。我们使用了计算属性来过滤我们的数据。你有没有发现我们在头部可以简单的使用`{{famous.length}}`来展示famous stories的数量
+
+That’s it. We have filtered our array using a computed property. Did you notice how easily we managed to display the number of famous stories next to our heading message using {{famous.length}}?
+
+即使使用计算属性来处理数组的过滤让我们有更大的灵活性，数组过滤会在更多的例子下使用
+
+Although using a computed property to perform array filtering gives you more flexibility,
+array filters can be more convenient for common use cases.
+
+## 作业
+
+## Homeword
+
+现在你对于Vue的事件处理，方法和计算属性等等有基本的了解。你应该要去尝试一些更有挑战性的东西。一开始创建一个"Mayor"候选人的数组。每一个候选人都有一个"name"和"votes"的数量。使用一个按钮来增加每个候选人的"votes"。使用计算属性来决定谁是现在的"Mayor"，并且展示他的名字。
+
+Now that you have a basic understanding of Vue’s event handling, methods, computed properties etc,
+you should try something a bit more challenging. Start by creating an array of “Mayor” candidates.
+Each candidate has a “name” and a number of “votes”. Use a button to increase the count of votes
+for each candidate. Use a computed property to determine who is the current “Mayor”, and display
+his name.
+
+最后使用键'c'来重置选举，所有的votes会被成0
+
+Finally when key ‘c’ is pressed the elections start from the beginning, and all votes become 0.
+
+javascropt的sort()和map()方法，还有键修饰符在这里非常有用，
+
+Javascript’s sort() and map() methods could prove very useful and Key modifiers will get
+you there
+
+你可以把目标定在body元素上来监听全局的事件
+
+To listen globally for events you should target the body element

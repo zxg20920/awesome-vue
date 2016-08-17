@@ -8,6 +8,7 @@
 <body>
     <div class="container">
         a={{a}},b={{b}}
+        <input type="text" v-model="a" number>
         <pre>{{$data|json}}</pre>
     </div>
     <script src="../../lib/vue.js"></script>
@@ -23,6 +24,7 @@
                 // this指向Vue实例
                 // **`this`** points to the Vue instance
                 return this.a + 1;
+                // return parseFloat(this.a) + 1;
             }
         }
     });
