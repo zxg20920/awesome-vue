@@ -419,6 +419,8 @@ In Vue.js, you define computed properties within the computed object inside your
 
     </html>
 
+这是一个演示计算属性用法的基本例子。我们设置了两个变量，先是a，把它设为1，然后上b，它回设置为computed对象里面函数返回的值。在这个例子里面，它的值会被设置为2
+
 This is a basic example demonstrating the use of computed properties. We’ve set two variables, the
 first, a, is set to 1 and the second, b, will be set by the returned result of the function inside the
 computed object. In this example the value of b will be set to 2.
