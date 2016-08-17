@@ -40,8 +40,16 @@ lib/ 存放库或者框架
 
 <hr/>
 
-[4-list-rendering.md | 源文件](https://github.com/cody1991/awesome-vue/blob/master/the-majesty-of-vue.js-ch/4-list-rendering.md)
+[4-list-rendering | 源文件](https://github.com/cody1991/awesome-vue/blob/master/the-majesty-of-vue.js-ch/4-list-rendering.md)
 
-[4-list-rendering.md | 博客地址](http://cody1991.github.io/vue/2016/08/15/the-majesty-of-vue.js-4-list-rendering.html)
+[4-list-rendering | 博客地址](http://cody1991.github.io/vue/2016/08/15/the-majesty-of-vue.js-4-list-rendering.html)
 
-[4-list-rendering.md | 代码](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/4-list-rendering)
+[4-list-rendering | 代码](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/4-list-rendering)
+
+<hr/>
+
+[5-interactivity.md | 源文件](https://github.com/cody1991/awesome-vue/blob/master/the-majesty-of-vue.js-ch/5-interactivity.md)
+
+[5-interactivity.md | 博客地址](http://cody1991.github.io/vue/2016/08/17/the-majesty-of-vue.js-5-interactivity.html)
+
+[5-interactivity.md | 代码](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch/code/5-interactivity)
