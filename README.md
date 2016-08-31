@@ -8,7 +8,13 @@
 
 ## 翻译学习
 
-* 翻译学习 [the-majesty-of-vuejs](https://leanpub.com/vuejs) 一书。 翻译和学习记录在 [the-majesty-of-vue.js-ch](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch)
+* 翻译学习 [the-majesty-of-vuejs](https://leanpub.com/vuejs) 一书。 翻译和学习记录在 [the-majesty-of-vue.js-ch](https://github.com/cody1991/awesome-vue/tree/master/the-majesty-of-vue.js-ch) 。翻译因为版权原因，已停止在线共享。 [Majesty of Vue.js Book](https://github.com/cody1991/awesome-vue/issues/1)
+
+## 个人博客
+
+* 完成 [一个简单的 vue.js 实践教程](http://cody1991.github.io/vue/2016/08/30/a-simple-vue-guide.html) 博客 ([segmentfault 地址](https://segmentfault.com/a/1190000006776243))。
+
+* [个人博客 - vue-tutorial](http://cody1991.github.io/vue/2016/07/31/vue-tutorial.html)
 
 ## 个人 learn 的记录
 
@@ -16,7 +22,7 @@
 
 这里主要是 vue2 的文档学习记录
 
-<hr/>
+---
 
 [learn - vue 文档学习](https://github.com/cody1991/learn/tree/gh-pages/vue-learn)
 
@@ -28,12 +34,10 @@
 
 * [vue-tutorial/](https://github.com/cody1991/learn/tree/gh-pages/vue-learn/vue-tutorial) 文件夹，主要存放一些网络教程的学习记录
 
-<hr/>
+---
 
 [learn vuex 文档学习](https://github.com/cody1991/learn/tree/gh-pages/finish/vuex)
 
-<hr/>
+---
 
 [vue-tutorials - 一个简单全面的vue.js入门教程 对应学习记录](https://github.com/cody1991/awesome-vue/tree/master/vue-tutorials)
-
-[个人博客 - vue-tutorial](http://cody1991.github.io/vue/2016/07/31/vue-tutorial.html)
