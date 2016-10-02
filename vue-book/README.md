@@ -28,6 +28,12 @@ P14
 
     改成 v-on:click 或者 简写的 @click
 
+P15
+
+    v-if 的案例
+
+    <p v-if=greeting">Hello</p> 少了一个引号 => v-if="greeting"
+
 P20
 
     v-repeat部分都可以不看，已过期
