@@ -39,3 +39,38 @@ P20
     v-repeat部分都可以不看，已过期
 
     全部跳过，从P29的 v-for 开始看
+
+P29
+
+    v-for例子里面， class="item-{{$index}}" 写重复了，去掉一个
+
+    new Vue({
+        ...
+        parentMessage:'滴滴'
+        ...
+    });
+
+    parentMessage 应该放在 data 属性里面
+
+P30
+
+    组件 v-for 例子上面写了一段话：
+
+    对于组件内的<p>标签，我们可以使用<slot>
+
+    去掉。
+
+P30
+
+    最上面的 $splice 例子都错了，改成下面这样：
+
+    var index = demo.items.indexOf(item);
+    if(index !== -1){
+        demo.items.splice(index,1);
+    }
+
+    而 demo.items.$remove(0)
+
+    也应该改成：
+
+    demo.items.$remove(item)

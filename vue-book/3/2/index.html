@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in items" class="item-{{$index}}">
+                {{$index}} - {{parentMessage}} {{item.msg}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="n in 10">
+                Hi! {{$index}}
+            </li>
+        </ul>
+        <hr/>
+        <input type="text" v-model="searchText">
+        <ul>
+            <li v-for="user in users | filterBy searchText in 'name' | orderBy field reverse">
+                {{user.name}} - {{user.tag}}
+            </li>
+        </ul>
+        <button @click="reverse = reverse*-1">Reverse</button>
+        <hr/>
+        <div :class="[classA,{classB:isB,classc:isC}]">
+            v-bind class
+        </div>
+        <div v-bind="{id:someProp,'OTHERATTR':otherProp}">
+            v-bind
+        </div>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

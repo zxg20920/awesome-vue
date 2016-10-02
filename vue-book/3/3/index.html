@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="value in primitiveValue">
+                {{$key}} : {{value}}
+            </li>
+            <li>===</li>
+            <li v-for="(key,item) in objectValue">
+                {{key}} : {{item.msg}}
+            </li>
+        </ul>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>
