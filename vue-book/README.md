@@ -16,7 +16,7 @@ P10
 
     例子写的是 v-for="tab in tabs"
 
-    可是后面的例子的data里面是 todos , => tabs
+    可是后面的例子的data里面是 todos => tabs
 
 P14
 
