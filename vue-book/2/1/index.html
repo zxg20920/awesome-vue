@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+        <p>
+            <%msg%>
+        </p>
+        <p>
+            <$htmlWord$>
+        </p>
+        <hr/>
+        <p data-id="{{msg}}"></p>
+        <p v-if="show">Show</p>
+        <a :href='url' v-text="urlWord" @click.prevent="clickUrl"></a>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

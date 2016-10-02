@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}
+        <hr/>
+        <p v-if="greeting">
+            {{msg}}
+        </p>
+        <template v-if="greeting">
+            <hr/>
+            <p>template</p>
+            <p>{{msg}}</p>
+        </template>
+        <hr/>
+        <input type="text" v-model="message">
+        <p v-show="message">Hello</p>
+        <p v-else>No Message</p>
+        <hr/> 姓名
+        <input type="text" v-model="data.name" lazy>
+        <br/> 年龄：
+        <input type="text" v-model="data.age" number debounce="5000">
+        <br/>
+        <input type="radio" id="man" value="man" v-model="data.sex">
+        <label for="man">Man</label>
+        <input type="radio" id="woman" value="woman" v-model="data.sex">
+        <label for="woman">Woman</label>
+        <br/> 兴趣：
+        <input type="checkbox" id="book" value="book" v-model="data.interest">
+        <label for="book">阅读</label>
+        <input type="checkbox" id="swin" value="swin" v-model="data.interest">
+        <label for="swin">游泳</label>
+        <br/> 身份：
+        <select v-model="data.identity">
+            <option value="teacher" selected>教师</option>
+            <option value="doctor">教师</option>
+        </select>
+        <br/> {{data | json}}
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>
