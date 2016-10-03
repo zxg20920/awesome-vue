@@ -9,12 +9,8 @@
 <body>
     <div id="app">
         {{msg}}
-        <br/>
-        <ul>
-            <li v-for="item in items" @click="toggle(item)">
-                <span v-show="item.show">{{item.content}}</span>
-            </li>
-        </ul>
+        <div v-my-directive="a"></div>
+        <button @click="change">Change</button>
     </div>
     <script src="../../vue.js"></script>
     <script src="common.js"></script>

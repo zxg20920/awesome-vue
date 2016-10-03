@@ -10,11 +10,11 @@
     <div id="app">
         {{msg}}
         <br/>
-        <ul>
-            <li v-for="item in items" @click="toggle(item)">
-                <span v-show="item.show">{{item.content}}</span>
-            </li>
-        </ul>
+        <p>自定义组件：</p>
+        <input v-example="a.b.c" />
+        <p>父作用域</p>
+        {{a.b.c}}
+        <br/>
     </div>
     <script src="../../vue.js"></script>
     <script src="common.js"></script>

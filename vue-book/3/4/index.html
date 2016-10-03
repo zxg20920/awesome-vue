@@ -9,12 +9,11 @@
 <body>
     <div id="app">
         {{msg}}
-        <br/>
-        <ul>
-            <li v-for="item in items" @click="toggle(item)">
-                <span v-show="item.show">{{item.content}}</span>
-            </li>
-        </ul>
+        <div v-demo:hello.a.b="msg"></div>
+        <div v-demo2="{color:'white',text:'hello'}"></div>
+        <hr/>
+        <input type="text" v-model="testParams">
+        <my-directive class="hello" name="hi" :a="testParams"></my-directive>
     </div>
     <script src="../../vue.js"></script>
     <script src="common.js"></script>
