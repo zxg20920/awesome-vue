@@ -1,0 +1,60 @@
+.expand-transition {
+    transition: all 0.3s ease;
+    height: 30px;
+    line-height: 30px;
+    background-color: #eee;
+}
+
+.expand-enter,
+.expand-leave {
+    height: 0;
+    opacity: 0;
+}
+
+.bounce2-transition {
+    display: inline-block;
+}
+
+.bounce2-enter {
+    animation: bounce-in 0.5s;
+}
+
+.bounce2-leave {
+    animation: bounce-out 0.5s;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce-out {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+.stagger-transition {
+    transition: all 0.5s ease;
+    height: 20px;
+    line-height: 20px;
+}
+
+.stagger-enter,
+.stagger-leave {
+    opacity: 0;
+    height: 0;
+}

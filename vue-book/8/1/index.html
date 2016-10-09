@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../../animate.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <button @click="show=!show">Toggle</button>
+        <div v-if="show" class="animated" transition="bounce">
+            Hello
+        </div>
+        <hr>
+        <div v-if="show" transition="expand">
+            Hello
+        </div>
+        <hr>
+        <div v-if="show" :transition="transitionName">
+            Hello
+        </div>
+        <hr>
+        <div v-if="show" transition="bounce2">
+            Look
+        </div>
+        <div v-if="show" transition="fade2">
+            fade
+        </div>
+        <input type="text" v-model="text">
+        <div v-for="item in items | filterBy text in 'text'" transition="stagger">{{item.text}}</div>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

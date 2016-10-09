@@ -98,3 +98,15 @@ P71
     vue.js:1023 [Vue warn]: Failed to resolve filter: reverse
 
     后面会讲解自定义过滤器
+
+P96 
+    
+    我把例子的代码改成下面这样，效果更加明显
+    
+    Vue.transition('stagger', {
+        stagger: function(index) {
+            console.log(Math.min(300, index * 50));
+            // 设置大点看得出效果
+            return Math.max(300, index * 500);
+        }
+    });
