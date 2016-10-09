@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <!-- 可以传入 $event -->
+        <button @click="greet('hello',$event)">
+            Greet
+        </button>
+        <!-- .prevent => event.preventDefault() -->
+        <!-- .stop => event.preventPropagation() -->
+        <!-- .capture 捕获模式 -->
+        <!-- .self 自身才会调用 -->
+        <!-- 按键 -->
+        <!-- .enter 13 -->
+        <!-- P101 -->
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>
