@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr>
+        <span>Welcome {{name}} join DDFE</span>
+        <br>
+        <input type="text" v-model="name" placeholder="join DDFE">
+        <hr>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+        <hr>
+        <input type="checkbox" id="flash" value="flash" v-model="bizLines">
+        <label for="flash">快车</label>
+        <input type="checkbox" id="bus" value="bus" v-model="bizLines">
+        <label for="bus">巴士</label>
+        <span>
+            checked lines:
+            {{bizLines | json}}
+        </span>
+        <hr>
+        <input type="radio" id="flash2" value="flash2" v-model="bizLine">
+        <label for="flash2">快车</label>
+        <input type="radio" id="bus2" value="bus2" v-model="bizLine">
+        <label for="bus2">巴士</label>
+        <span>picked:{{bizLine}}</span>
+        <hr>
+        <select v-model="bizLine2">
+            <option value="flash" selected>快车</option>
+            <option value="bus">巴士</option>
+        </select>
+        <span>selected:{{bizLine2}}</span>
+        <hr>
+        <select v-model="bizLine3" multiple>
+            <option value="flash" selected>快车</option>
+            <option value="bus">巴士</option>
+        </select>
+        <span>selected:{{bizLine3 | json}}</span>
+        <hr>
+        <select v-model="bizLine4">
+            <option v-for="option in options" :value="option.value">
+                {{option.text}}
+            </option>
+        </select>
+        <span>bizLine4:{{bizLine4}}</span>
+        <hr>
+        <input type="checkbox" id="flash3" :value="flash" v-model="bizLines2">
+        <label for="flash3">{{flash.name}}</label>
+        <span>{{bizLines2 | json}}</span>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

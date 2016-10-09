@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <p>{{msg|uppercase}}</p>
+        <p>{{msg|capitalize}}</p>
+        <hr>
+        <div v-for="item in items">
+            <p>
+                {{item.text}}
+            </p>
+        </div>
+        <hr>
+        <!-- limitBy 第一个参数是限定的个数 第二个是开始的位置 -->
+        <div v-for="item in items | limitBy 3">
+            <p>
+                {{item.text}}
+            </p>
+        </div>
+        <hr>
+        <div v-for="item in items | limitBy 3 3">
+            <p>
+                {{item.text}}
+            </p>
+        </div>
+        <hr>
+        <!-- 搜索所有的属性 -->
+        <div v-for="item in items | filterBy '3'">
+            <p>
+                text : {{item.text}}
+            </p>
+            <p>
+                age : {{item.age}}
+            </p>
+        </div>
+        <hr>
+        <!-- 只搜索年龄的 -->
+        <div v-for="item in items | filterBy '3' in 'age'">
+            <p>
+                text : {{item.text}}
+            </p>
+            <p>
+                age : {{item.age}}
+            </p>
+        </div>
+        <hr>
+        <!-- 也可以搜索多个，比如年龄和文字 -->
+        <div v-for="item in items | filterBy '3' in 'age' 'text'">
+            <p>
+                text : {{item.text}}
+            </p>
+            <p>
+                age : {{item.age}}
+            </p>
+        </div>
+        <hr>
+        <!-- 把上面的例子改成搜索一个数组里面的 -->
+        <div v-for="item in items | filterBy '3' in fields">
+            <p>
+                text : {{item.text}}
+            </p>
+            <p>
+                age : {{item.age}}
+            </p>
+        </div>
+        <hr>
+        <input type="text" v-model="name">
+        <ul>
+            <li v-for="item in items | filterBy name in 'text'">
+                {{item.text}}
+            </li>
+        </ul>
+        <hr>
+        <!-- text排名 -->
+        <ul>
+            <li v-for="item in items | orderBy 'text'">
+                text: {{item.text}}
+                <br/> age: {{item.age}}
+            </li>
+        </ul>
+        <hr>
+        <!-- age排名 -->
+        <ul>
+            <li v-for="item in items | orderBy 'age'">
+                text: {{item.text}}
+                <br/> age: {{item.age}}
+            </li>
+        </ul>
+        <!-- 两个一起 按照先后顺序来拍-->
+        <ul>
+            <li v-for="item in items | orderBy 'age' 'text'">
+                text: {{item.text}}
+                <br/> age: {{item.age}}
+            </li>
+        </ul>
+        <hr>
+        <!-- 传入一个数组 -->
+        <ul>
+            <li v-for="item in items | orderBy fileds">
+                text: {{item.text}}
+                <br/> age: {{item.age}}
+            </li>
+        </ul>
+        <hr>
+        <p>
+            <!-- morning是美元，2个小数 -->
+            {{amount|currency '$' 3}}
+        </p>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

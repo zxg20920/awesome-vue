@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <button @click="toggleShow">Toggle Show Total Price</button>
+        {{totalPrice}}
+        <p v-if="showTotal">Total Price = {{totalPrice}}</p>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

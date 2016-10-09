@@ -74,3 +74,27 @@ P30
     也应该改成：
 
     demo.items.$remove(item)
+
+P59
+
+    例子代码里面的
+
+    methods:{
+        click:function(){
+            ...
+        }
+    }
+
+    click 改成 toggleShow
+
+P60
+    
+    4.3.2 涉及v-repeat的部分跳过不看
+
+P71
+
+    最上面的链式调用，过滤器 reverse 不是内置的，这里会报错
+
+    vue.js:1023 [Vue warn]: Failed to resolve filter: reverse
+
+    后面会讲解自定义过滤器
