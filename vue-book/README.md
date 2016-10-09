@@ -1,7 +1,7 @@
 Vue.js权威指南 学习记录
 ---
 
-书本问题：
+书本问题
 ---
 
 P1
@@ -110,3 +110,38 @@ P96
             return Math.max(300, index * 500);
         }
     });
+
+P112
+
+    HTML特性不区分大小写...的例子，
+
+    组件注册里面的 props 数组是 ['myComponent']
+
+    而下面HTML代码里面写的是 
+
+    <child my-message='hello!'></child>
+
+    可以把组件组件的 props 数组改成 ['myMessage']
+
+P114
+
+    最上面的 
+
+    data:function(){
+        return {
+            info:{
+                name:'顺风车'
+            }
+        }
+    }
+
+    这里首先实例不是一个组件，data应该只是一个对象
+
+    接着按照结果的图片，info.name的值应该是 '顺风车、专车'。改成这样：
+
+    data: {
+        msg: 'hello world',
+        info: {
+            name: '顺风车、专车'
+        }
+    }

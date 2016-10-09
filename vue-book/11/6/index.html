@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <!-- 子元素模板 -->
+        <template id="child-template">
+            <input type="text" v-model="msg">
+            <button @click="notify">Dispatch Event</button>
+        </template>
+        <!-- 父元素模板 -->
+        <div id="events-example">
+            <p>Messages: {{messages|json}}</p>
+            <child></child>
+        </div>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

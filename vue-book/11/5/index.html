@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <input type="text" v-model="info.name">
+        <!-- 这里虽然写了 .once 但是传递的是对象，所以一直是类似双向的。对象是按引用调用 -->
+        <child v-bind:msg.once="info"></child>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>
