@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <template id="bus">
+            <div>bus</div>
+        </template>
+        <template id="fast">
+            <div>fast</div>
+        </template>
+        <template id="business">
+            <div>business</div>
+        </template>
+        <p>{{msg}}</p>
+        <hr/>
+        <input type="radio" id="one" value="fast" v-model="currentView">
+        <label for="one">fast</label>
+        <br/>
+        <input type="radio" id="two" value="bus" v-model="currentView">
+        <label for="two">bus</label>
+        <br/>
+        <input type="radio" id="three" value="business" v-model="currentView">
+        <label for="three">business</label>
+        <br/>
+        <component :is="currentView" keep-alive transition="fade" transition-mode="out-in"></component>
+        <component :is="currentView" keep-alive transition="fade" transition-mode="in-out"></component>
+    </div>
+    <!--     <my-component
+        :foo="bar"
+        :bar="qux"
+        @event-a="doThis"
+        @event-b="doThat">
+        <img slot="icon" src="...">
+        <p slot="main-text">Hello!</p>
+    </my-component> -->
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <template id="didi-component">
+            <h1>This is my component!</h1>
+            <slot name="two">two</slot>
+            <slot>
+                <p>
+                    如果没有内容分发
+                </p>
+            </slot>
+            <slot name="one">one</slot>
+        </template>
+        <didi-component>
+            <p>This is some original content</p>
+            <p slot="one">new one</p>
+        </didi-component>
+        <didi-component>
+        </didi-component>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>

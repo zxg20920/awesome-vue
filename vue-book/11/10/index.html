@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <p>inline tempalte</p>
+        <my-item v-for="item in items" :item="item" inline-template>
+            <p>{{a}},{{item.text}}</p>
+        </my-item>
+        <p>no inline template</p>
+        <my-item v-for="item in items" :item="item">
+            <p>{{a}},{{items[0].text}}</p>
+        </my-item>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>
