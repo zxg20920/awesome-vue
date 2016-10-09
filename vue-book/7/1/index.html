@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr/>
+        <div class="static" v-bind:class="{'didi-orange':isRipe,'didi-green':isNotRipe}">
+            v-bind:class
+        </div>
+        <hr>
+        <div v-bind:class="ddfe">
+            v-bind:class object
+        </div>
+        <hr>
+        <div v-bind:class="ddfe2">
+            v-bind:class object computed
+        </div>
+        <hr>
+        <div v-bind:class="[didiHandsome,didiBeautiful]">
+            v-bind:class array
+        </div>
+        <hr>
+        <div :class="[didiHandsome,isRipe?didiOrange:'']">
+            v-bind:class array 三元判断
+        </div>
+        <hr>
+        <div :class="[didiHandsome,{'didi-orange':isRipe,'didi-green':isNotRap}]">
+            混合
+        </div>
+    </div>
+    <script src="../../vue.js"></script>
+    <script src="common.js"></script>
+</body>
+
+</html>
