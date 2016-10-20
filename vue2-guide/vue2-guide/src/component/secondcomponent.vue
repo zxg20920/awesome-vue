@@ -1,6 +1,6 @@
 <template>
     <div id="secondcomponent">
-        <h1>I am anohter page</h1>
+        <h1>I am anohter page！</h1>
         <a>written by {{author}}</a>
 <!--         <ul>
             <li v-for="article in articles">
@@ -23,7 +23,7 @@
         data(){
             return {
                 articles:[],
-                author:'tang',
+                author:'tang1',
             }
         },
         mounted:function(){
