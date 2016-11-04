@@ -12,3 +12,5 @@ var app = new Vue({
         return h(App);
     }
 })
+
+console.log(app);

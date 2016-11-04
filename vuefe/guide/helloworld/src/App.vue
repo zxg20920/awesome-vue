@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p :title="message2">{{message}}</p>
+    <p :title="message2">{{message | capitalize}}</p>
     <p v-if="seen">v-if</p>
     <ul>
       <li v-for="todo in todos">
@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      message:'Hello Vue.js',
+      message:'hello Vue.js',
       message2:'You loaded this page on ' + new Date(),
       message3:'',
       seen:true,
@@ -44,6 +44,18 @@ export default {
   },
   components:{
     todoItem
+  },
+  created () {
+    console.log('message is : ' + this.message);
+  },
+  filters:{
+    capitalize:function(val){
+      if(!val){
+        return;
+      }
+      val = val.toString();
+      return val.charAt(0).toUpperCase() + val.slice(1); 
+    }
   }
 }
 </script>
