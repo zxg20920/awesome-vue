@@ -13,15 +13,54 @@
     <ul>
       <todo-item v-for="todo in todos" :todo="todo"></todo-item>
     </ul>
+    <computed></computed>
+    <hr>
+    <watch></watch>
+    <hr>
+    <styleclass></styleclass>
+    <hr>
+    <loop></loop>
+    <hr>
+    <todos></todos>
+    <hr>
+    <p>{{total}}</p>
+    <counter @increment="incrementTotal"></counter>
+    <counter @increment="incrementTotal"></counter>
+    <hr>
+    {{someVal}}
+    <input type="text" :value="someVal" @input="someVal = $event.target.value">
+    <hr>
+    <p>{{myInputVal}}</p>
+    <my-input label="Message" v-model="myInputVal"></my-input>
   </div>
 </template>
 
 <script>
 import todoItem from './todoItem.vue'
+import computed from './computed.vue'
+import watch from './watch.vue'
+import styleclass from './style.vue'
+import loop from './loop.vue'
+import todos from './todos.vue'
+import counter from './counter.vue'
+import myInput from './myInput.vue'
 export default {
   name: 'app',
+  components:{
+    todoItem,
+    computed,
+    watch,
+    styleclass,
+    loop,
+    todos,
+    counter,
+    myInput
+  },
   data () {
     return {
+      myInputVal:'hello',
+      someVal:'',
+      total:0,
       msg: 'Welcome to Your Vue.js App',
       message:'hello Vue.js',
       message2:'You loaded this page on ' + new Date(),
@@ -40,10 +79,10 @@ export default {
   methods:{
     reverseMessage () {
       this.message = this.message.split('').reverse().join('');
+    },
+    incrementTotal (){
+      this.total +=1;
     }
-  },
-  components:{
-    todoItem
   },
   created () {
     console.log('message is : ' + this.message);
