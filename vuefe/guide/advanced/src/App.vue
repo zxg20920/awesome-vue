@@ -1,11 +1,15 @@
 <template>
   <div id="app">
+   <fade></fade>
+   <hr>
+   <list></list>
    <transition-1></transition-1>
    <animation-1></animation-1>
    <animate-1></animate-1>
    <velocity></velocity>
    <hr>
    <sudoku></sudoku>
+   <hr>
   </div>
 </template>
 
@@ -15,13 +19,17 @@ import animation1 from './animation-1.vue'
 import animate1 from './animate.vue'
 import velocity from './velocity.vue'
 import sudoku from './sudoku.vue'
+import list from './list.vue'
+import fade from './fade.vue'
 export default {
   components:{
     transition1,
     animation1,
     animate1,
     velocity,
-    sudoku
+    sudoku,
+    list,
+    fade
   },
   name: 'app',
   data () {
