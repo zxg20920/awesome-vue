@@ -1,15 +1,26 @@
 <template>
   <div id="app">
     <demo1></demo1>
+    <hr>
+    <demo2></demo2>
+    <hr>
+    <!-- <dosvg></dosvg> -->
+    <calc></calc>
   </div>
 </template>
 
 <script>
 import demo1 from './demo1.vue'
+import demo2 from './demo2.vue'
+// import dosvg from './dosvg.vue'
+import calc from './calc.vue'
 export default {
   name: 'app',
   components:{
-    demo1
+    demo1,
+    demo2,
+    // dosvg,
+    calc
   },
   data () {
     return {
