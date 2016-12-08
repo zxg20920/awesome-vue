@@ -1,5 +1,19 @@
 <template>
   <div id="app">
+    <DatetimePicker></DatetimePicker>
+    <hr>
+    <DatePicker></DatePicker>
+    <hr>
+    <TimePicker></TimePicker>
+    <hr>
+    <Slider></Slider>
+    <hr>
+    <ElSwitch></ElSwitch>
+    <hr>
+    <ElSelect></ElSelect>
+    <hr>
+    <InputNumber></InputNumber>
+    <hr>
     <ElInput></ElInput>
     <hr>
     <Checkbox></Checkbox>
@@ -27,6 +41,13 @@ import ElButton from './components/button'
 import Radio from './components/radio'
 import Checkbox from './components/checkbox'
 import ElInput from './components/input'
+import InputNumber from './components/input-number'
+import ElSelect from './components/select'
+import ElSwitch from './components/switch'
+import Slider from './components/slider'
+import TimePicker from './components/time-picker'
+import DatePicker from './components/date-picker'
+import DatetimePicker from './components/datetime-picker'
 
 export default {
   name: 'app',
@@ -36,7 +57,14 @@ export default {
     ElButton,
     Radio,
     Checkbox,
-    ElInput
+    ElInput,
+    InputNumber,
+    ElSelect,
+    ElSwitch,
+    Slider,
+    TimePicker,
+    DatePicker,
+    DatetimePicker
   }
 }
 </script>
