@@ -4,7 +4,8 @@
 			v-model="value1"
 			type="date"
 			placeholder="选择日期"
-			:picker-options="pickerOptions0">
+			:picker-options="pickerOptions0"
+			@change="changeTest">
 		</el-date-picker>
 		<br>
 		<el-date-picker
@@ -120,6 +121,11 @@
 						}
 					}]
 				}
+			}
+		},
+		methods:{
+			changeTest(day){
+				console.log(day);
 			}
 		}
 	}

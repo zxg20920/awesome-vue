@@ -7,7 +7,7 @@
 		<el-input placeholder="请输入内容" v-model="input" disabled></el-input>
 		{{input}}	
 		<el-input placeholder="请选择日期" v-model="input2" icon="time"
-			@click="handleIconClick"></el-input>
+			@click="handleIconClick" @change="handleIconClick"></el-input>
 		<hr>
 		<el-input
 			type="textarea"
